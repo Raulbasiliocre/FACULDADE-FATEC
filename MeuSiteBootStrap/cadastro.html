@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class=" d-flex flex-column text-center bg-secondary-subtle">
+    <div class="d-flex justify-content-center align-items-center vh-100">
+    <form action="sucesso.html" class="rounded-4 w-25 form-control bg-info shadow-lg">
+        <fieldset class="">
+            <legend class="text-white mt-2">Cadastro</legend>
+            <div class="d-flex flex-column mb-3 justify-content-center align-items-center  mt-2">
+                <div class="mt-2 w-75 text-start">
+             <label for="" class="form-label text-white">Nome: </label>
+                <input type="text" placeholder="Digite seu Nome" class="w-100 form-control" name="" id="" required>
+                </div>
+                <div  class="mt-2 w-75 text-start">
+            <label class="form-label text-white"> Sobrenome: </label>
+                <input type="text" placeholder="Digite seu Sobrenome" class="w-100 form-control" required>
+            </div>
+            <div  class="mt-2 w-75 text-start">
+            <label class="form-label text-white">Email: </label>
+                <input type="email" placeholder="Digite seu Email" class="w-100 form-control" required>
+            </div>
+            <div  class="mt-2 w-75 text-start">
+            <label class="form-label text-white">Senha: </label>
+                <input type="password" placeholder="Digite sua Senha" class="w-100 form-control" required>
+            </div>
+<div  class="mt-2 w-75 text-start">
+            <label class="form-label text-white">Data de nascimento: </label>
+                <input type="date" class="w-100 form-control" required>
+            </div>
+            <div class="d-flex flex-column mt-2">
+            <label class="form-label text-white">Gênero:</label>
+                <div >
+                    <input class=" mr-2" type="radio" name="generos" id="" required>
+                    <label class="form-label text-white" >Masculino
+                    </label>
+                    <input class=" mr-2" type="radio" name="generos">
+                    <label class="form-label text-white">Feminino
+                    </label>
+                    <input class=" mr-2" type="radio" name="generos">
+                    <label class="form-label text-white">Outro
+                    </label>
+                </div>
+            </div>
+            <div class="d-flex flex-column mt-2">
+                <label class="form-label text-white">Qual área você deseja seguir? (opcional)</label>
+                    <div class="">
+                    <input type="checkbox" name="área">
+                    <label class="form-label text-white">Frontend</label>
+                    <input type="checkbox" name="área">
+                    <label class="form-label text-white">backend</label>
+                    <input type="checkbox" name="área">
+                    <label class="form-label text-white">fullstack</label>
+                    </div>
+                    </div>
+            </div>
+            <div class="w-100 mt-4 mb-2 ">
+                <button type="submit"  class="btn btn-light w-25 mx-2 p-2">Enviar</button>
+                <button type="reset" class="btn btn-light w-25 mx-2 p-2">Apagar</button>
+            </div>
+
+            <div>
+                <a href="index.html" class="text-white">clique aqui para voltar a tela inicial</a>
+            </div>
+            </div>
+        </fieldset>
+    </form>
+    </div>
+</body>
+</html>
