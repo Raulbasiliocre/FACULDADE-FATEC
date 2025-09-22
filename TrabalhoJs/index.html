@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Trabalho de JavaScript</h1>
+       
+        <h2>Exercício 1</h2>
+        <div id="ex1"></div>
+        <script>
+        let nome = "raul";
+        let idade = 20;
+        let AlmocouHj = true;
+        document.getElementById('ex1').innerHTML =
+            'typeof nome: ' + typeof nome + '<br>' +
+            'typeof idade: ' + typeof idade + '<br>' +
+            'typeof AlmocouHj: ' + typeof AlmocouHj + '<br>';
+        </script>
+
+        <h2>Exercício 2</h2>
+        <div id="ex2"></div>
+        <script>
+        let numero1=10;
+        let numero2=20;
+        document.getElementById('ex2').innerHTML =
+            'soma: ' + (numero1+numero2) + '<br>' +
+            'subtração: ' + (numero1-numero2) + '<br>' +
+            'multiplicação: ' + (numero1*numero2) + '<br>' +
+            'divisão: ' + (numero1/numero2) + '<br>';
+        </script>
+
+        <h2>Exercício 3</h2>
+        <div id="ex3"></div>
+        <script>
+        let nome3 = "raul";
+        let idade3 = 18;
+        let cidade = "Osasco";
+        let Estado = "SP";
+        let fraseConcatenada = "meu nome é " + nome3 + " e tenho " + idade3 + " anos moro em " + cidade + " no estado de " + Estado;
+        let fraseinterpolada = `meu nome é ${nome3} e tenho ${idade3} anos, moro em ${cidade} no estado de ${Estado}`;
+        document.getElementById('ex3').innerHTML = fraseConcatenada + '<br>' + fraseinterpolada;
+        </script>
+
+        <h2>Exercício 4</h2>
+        <div id="ex4"></div>
+        <script>
+        function ex4() {
+            let idade = prompt("Qual sua idade ?");
+            idade = Number(idade);
+            if (idade >= 18) {
+                document.getElementById('ex4').innerHTML = "Você pode tirar carteira de motorista";
+            } else {
+                let faltaanos = 18-idade;
+                document.getElementById('ex4').innerHTML = `Você não pode tirar carteira de motorista, faltam ${faltaanos} anos`;
+            }
+        }
+        ex4();
+        </script>
+
+        <h2>Exercício 5</h2>
+        <div id="ex5"></div>
+        <script>
+        function ex5() {
+            let numero = prompt("Digite um número para a tabuada:");
+            numero = Number(numero);
+            let tabuada = '';
+            for (let i = 1; i <= 10; i++) {
+                tabuada += `${numero} x ${i} = ${numero * i}<br>`;
+            }
+            document.getElementById('ex5').innerHTML = tabuada;
+        }
+        ex5();
+        </script>
+
+        <h2>Exercício 6</h2>
+        <div id="ex6"></div>
+        <script>
+        let numero6 = 25;
+        let texto6 = "25";
+        document.getElementById('ex6').innerHTML =
+            'numero == texto: ' + (numero6 == texto6) + '<br>' +
+            'numero === texto: ' + (numero6 === texto6) + '<br>';
+        </script>
+
+        <h2>Exercício 7</h2>
+        <div id="ex7"></div>
+        <script>
+        let dia = 5;
+        let diaSemana;
+        switch (dia) {
+            case 1:
+                diaSemana = "domingo";
+                break;
+            case 2:
+                diaSemana = "segunda";
+                break;
+            case 3:
+                diaSemana = "terça";
+                break;
+            case 4:
+                diaSemana = "quarta";
+                break;
+            case 5:
+                diaSemana = "quinta";
+                break;
+            case 6:
+                diaSemana = "sexta";
+                break;
+            default:
+                diaSemana = "sábado";
+        }
+        document.getElementById('ex7').innerHTML = `Dia da semana para o número 5: ${diaSemana}`;
+        </script>
+
+        <h2>Exercício 9</h2>
+        <div id="ex9"></div>
+        <script>
+        let impares = '';
+        for (let i = 1; i <= 20; i++) {
+            if (i % 2 !== 0) {
+                impares += `${i} é ímpar<br>`;
+            }
+        }
+        document.getElementById('ex9').innerHTML = impares;
+        </script>
+
+        <h2>Exercício 10</h2>
+        <div id="ex10"></div>
+        <label>Primeiro número: <input type="number" id="num1"></label><br>
+        <label>Segundo número: <input type="number" id="num2"></label><br>
+        <label>Operador:
+            <select id="operador">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+        </label><br>
+        <button onclick="calcular()">Calcular</button>
+        <div id="resultado" style="margin-top:10px;font-weight:bold;"></div>
+        <script>
+        function calcular() {
+            const n1 = Number(document.getElementById('num1').value);
+            const n2 = Number(document.getElementById('num2').value);
+            const op = document.getElementById('operador').value;
+            let res;
+            if (op === '+') {
+                res = n1 + n2;
+            } else if (op === '-') {
+                res = n1 - n2;
+            } else if (op === '*') {
+                res = n1 * n2;
+            } else if (op === '/') {
+                if (n2 === 0) {
+                    document.getElementById('resultado').innerText = 'Erro: divisão por zero!';
+                    return;
+                }
+                res = n1 / n2;
+            }
+            document.getElementById('resultado').innerText = 'Resultado: ' + res;
+        }
+        </script>
+    </body>
+
+</html>
+     
+
