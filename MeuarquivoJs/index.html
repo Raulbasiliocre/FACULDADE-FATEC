@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos os Exercícios de JavaScript</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 5px;
+            color: #333;
+        }
+        hr {
+            margin: 40px 0;
+            border: 1px solid #eee;
+        }
+        button {
+            padding: 8px 12px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+        }
+        input[type="text"] {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        /* Estilos Específicos do Exercício 3: Galeria */
+        #imagem-galeria {
+            max-width: 500px;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+
+        /* Estilos Específicos do Exercício 4: FAQ */
+        #pergunta {
+            cursor: pointer;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 0;
+        }
+        #resposta {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        .escondido {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Todos os Exercícios </h1>
+
+    <hr>
+
+    <h2>Exercício 1: Contador Simples</h2>
+    <h2 id="contador">0</h2>
+    <button id="btn-incrementar">Incrementar</button>
+    <button id="btn-resetar">Resetar</button>
+
+    <hr>
+
+    <h2>Exercício 2: Saudação Interativa</h2>
+    <input type="text" id="input-nome" placeholder="Digite seu nome">
+    <button id="btn-saudar">Saudar</button>
+    <p id="mensagem-saudacao"></p>
+
+    <hr>
+
+    <h2>Exercício 3: Galeria de Imagens Simples</h2>
+    <img id="imagem-galeria" alt="Imagem da galeria">
+    <button id="btn-anterior">Anterior</button>
+    <button id="btn-proximo">Próximo</button>
+
+    <hr>
+
+    <h2>Exercício 4: FAQ (Accordion Simples)</h2>
+    <h3 id="pergunta">O que é DOM?</h3>
+    <div id="resposta" class="resposta escondido">
+        DOM (Document Object Model) é uma interface de programação para documentos HTML. Ele representa a página para que os programas possam alterar a estrutura, estilo e conteúdo do documento.
+    </div>
+
+    <hr>
+
+    <h2>Exercício 5: Lista de Tarefas (To-Do List)</h2>
+    <input type="text" id="input-tarefa" placeholder="Digite uma nova tarefa">
+    <button id="btn-adicionar">Adicionar Tarefa</button>
+    <ul id="lista-tarefas">
+        </ul>
+
+
+    <script>
+        // --- Início do Código do Exercício 1: Contador ---
+        const contadorElemento = document.getElementById('contador');
+        const btnIncrementar = document.getElementById('btn-incrementar');
+        const btnResetar = document.getElementById('btn-resetar');
+        let contador = 0;
+
+        btnIncrementar.addEventListener('click', () => {
+            contador++;
+            contadorElemento.textContent = contador;
+        });
+
+        btnResetar.addEventListener('click', () => {
+            contador = 0;
+            contadorElemento.textContent = contador;
+        });
+        // --- Fim do Código do Exercício 1 ---
+
+
+        // --- Início do Código do Exercício 2: Saudação ---
+        const inputNome_ex2 = document.getElementById('input-nome');
+        const btnSaudar_ex2 = document.getElementById('btn-saudar');
+        const pMensagem_ex2 = document.getElementById('mensagem-saudacao');
+
+        btnSaudar_ex2.addEventListener('click', () => {
+            const nomeDigitado = inputNome_ex2.value;
+            if (nomeDigitado.trim() === "") {
+                pMensagem_ex2.textContent = "Por favor, digite seu nome.";
+            } else {
+                pMensagem_ex2.textContent = `Olá, ${nomeDigitado}! Seja bem-vindo(a)!`;
+            }
+        });
+        // --- Fim do Código do Exercício 2 ---
+
+
+        // --- Início do Código do Exercício 3: Galeria ---
+        const imagemEl_ex3 = document.getElementById('imagem-galeria');
+        const btnAnterior_ex3 = document.getElementById('btn-anterior');
+        const btnProximo_ex3 = document.getElementById('btn-proximo');
+        const imagens_ex3 = [
+            "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=500",
+            "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?w=500",
+            "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500",
+            "https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=500"
+        ];
+        let indiceAtual_ex3 = 0;
+
+        function atualizarImagem() {
+            imagemEl_ex3.src = imagens_ex3[indiceAtual_ex3];
+        }
+
+        btnProximo_ex3.addEventListener('click', () => {
+            indiceAtual_ex3++;
+            if (indiceAtual_ex3 >= imagens_ex3.length) {
+                indiceAtual_ex3 = 0;
+            }
+            atualizarImagem();
+        });
+
+        btnAnterior_ex3.addEventListener('click', () => {
+            indiceAtual_ex3--;
+            if (indiceAtual_ex3 < 0) {
+                indiceAtual_ex3 = imagens_ex3.length - 1;
+            }
+            atualizarImagem();
+        });
+        
+        atualizarImagem(); // Exibe a primeira imagem ao carregar a página
+        // --- Fim do Código do Exercício 3 ---
+
+
+        // --- Início do Código do Exercício 4: FAQ ---
+        const pergunta_ex4 = document.getElementById('pergunta');
+        const resposta_ex4 = document.getElementById('resposta');
+
+        pergunta_ex4.addEventListener('click', () => {
+            resposta_ex4.classList.toggle('escondido');
+        });
+        // --- Fim do Código do Exercício 4 ---
+
+
+        // Exercício 5: código movido para arquivo externo `exerc5.js`
+    </script>
+
+    <script src="exerc5.js"></script>
+
+</body>
+</html>
